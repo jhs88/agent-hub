@@ -22,7 +22,7 @@ Agent Hub may read local coding-agent histories and provider status through boun
 PYTHONPATH=src python3 -m unittest discover -v tests
 ```
 
-Plasma 6 live testing uses `qmllint`, `kpackagetool6`, and `plasmawindowed` on `frmwrk`.
+Plasma 6 live testing uses `qmllint`, `kpackagetool6`, and `plasmawindowed` on a Plasma 6 development host.
 
 The core and CLI use the Python standard library. The session D-Bus helper additionally requires PyGObject with Gio (`python-gobject` on Arch Linux).
 
@@ -65,3 +65,5 @@ The activation templates are in `contrib/systemd/` and `contrib/dbus/`. The Plas
 ## Current migration boundary
 
 `GetSnapshot`, default-agent configuration, safe launching, D-Bus, and the Plasma client are owned here. `Refresh` currently invokes the existing `agent-hub-collect` executable through an absolute, shell-free, 30-second bounded adapter. Provider collectors will move behind native adapters in the next slice. An optional `ai-usagebar usage --json` quota adapter can then replace duplicated provider-specific quota code without making `ai-usagebar` mandatory.
+
+Contributor and agent workflow context lives in [`AGENTS.md`](AGENTS.md), [`CONTEXT.md`](CONTEXT.md), and [`docs/adr/`](docs/adr/).

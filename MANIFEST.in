@@ -1,5 +1,8 @@
+include AGENTS.md
+include CONTEXT.md
 include DESIGN.md
 include THIRD_PARTY.md
 include install-user.sh
 recursive-include contrib *
+recursive-include docs *
 recursive-include plasma *
