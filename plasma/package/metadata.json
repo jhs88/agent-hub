@@ -1,0 +1,19 @@
+{
+  "KPackageStructure": "Plasma/Applet",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Email": "joe.scherreik@gmail.com",
+        "Name": "Joseph Scherreik"
+      }
+    ],
+    "Category": "System Information",
+    "Description": "Coding-agent activity, quota, and safe launcher client",
+    "Icon": "view-statistics",
+    "Id": "io.github.jhs88.agenthub",
+    "License": "MIT",
+    "Name": "Agent Hub",
+    "Version": "0.1.0"
+  },
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

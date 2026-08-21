@@ -1,0 +1,14 @@
+[Unit]
+Description=Universal Agent Hub session service
+Documentation=https://github.com/jhs88/agent-hub
+
+[Service]
+Type=dbus
+BusName=io.github.jhs88.AgentHub
+ExecStart=%h/.local/bin/agent-hub serve
+Restart=on-failure
+RestartSec=2
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

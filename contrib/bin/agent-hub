@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+data_home="${XDG_DATA_HOME:-$HOME/.local/share}"
+package_root="$data_home/agent-hub/python"
+export PYTHONPATH="$package_root${PYTHONPATH:+:$PYTHONPATH}"
+exec /usr/bin/python3 -m agent_hub.cli "$@"

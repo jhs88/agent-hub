@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-hub"
+version = "0.1.0.dev0"
+description = "Desktop-neutral coding-agent activity, quota, and launcher service"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Joseph Scherreik", email = "joe.scherreik@gmail.com"}]
+dependencies = []
+
+[project.scripts]
+agent-hub = "agent_hub.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
