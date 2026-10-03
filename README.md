@@ -62,6 +62,22 @@ gdbus call --session \
 
 The activation templates are in `contrib/systemd/` and `contrib/dbus/`. The Plasma KPackage is under `plasma/package/`; see [`plasma/README.md`](plasma/README.md).
 
+## Interactive agents
+
+Agent Hub supports installed `pi`, `opencode`, `codex`, and `hermes` executables on `PATH`. The CLI and snapshot report availability. Plasma builds its default-agent picker from that snapshot and disables missing agents. Adding Hermes support does not change an existing default.
+
+```bash
+agent-hub agents --json
+agent-hub launch hermes --dry-run
+agent-hub launch hermes
+```
+
+An explicit launch leaves the selected default unchanged. To choose Hermes as the default yourself, run `agent-hub default set hermes`. Selection fails if the executable is missing.
+
+Launches use the configured Agent Hub working directory, a supported terminal, and a transient systemd user unit. Hermes starts with its bare executable, which opens interactive chat according to the [Hermes CLI reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands). Agent Hub adds no `--yolo`, approval bypass, query, model, provider, or profile flags. It does not install Hermes or modify its configuration or approval settings.
+
+For Hermes launches only, the transient unit sets `UnsetEnvironment=HERMES_SESSION_SOURCE`. Hermes otherwise uses an inherited source label for its new session, which could incorrectly label a human launch as automation. Other agents' launch commands and environments remain unchanged. Hermes activity and quota collection are not added by launcher support.
+
 ## Current migration boundary
 
 `GetSnapshot`, default-agent configuration, safe launching, D-Bus, and the Plasma client are owned here. `Refresh` currently invokes the existing `agent-hub-collect` executable through an absolute, shell-free, 30-second bounded adapter. Provider collectors will move behind native adapters in the next slice. An optional `ai-usagebar usage --json` quota adapter can then replace duplicated provider-specific quota code without making `ai-usagebar` mandatory.

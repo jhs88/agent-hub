@@ -24,6 +24,13 @@ class PlasmaContractTest(unittest.TestCase):
         self.assertIn('call("Launch"', qml)
         self.assertIn("compactRepresentation", qml)
         self.assertIn("fullRepresentation", qml)
+        # New agents arrive through the helper snapshot, not a desktop allow-list.
+        self.assertIn("readonly property var agents: snapshot.agents || []", qml)
+        self.assertIn("model: root.agents", qml)
+        self.assertIn("text: modelData.id", qml)
+        self.assertIn("enabled: modelData.installed", qml)
+        self.assertIn("checked: root.snapshot.defaultAgent === modelData.id", qml)
+        self.assertIn("onClicked: root.setDefaultAgent(modelData.id)", qml)
 
         for forbidden in (
             "Plasma5Support",

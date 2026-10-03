@@ -6,7 +6,7 @@ import os
 import shutil
 from pathlib import Path
 
-SUPPORTED_AGENTS = ("pi", "opencode", "codex")
+SUPPORTED_AGENTS = ("pi", "opencode", "codex", "hermes")
 
 
 def config_dir() -> Path:

@@ -6,7 +6,7 @@ Agent Hub presents one private, aggregate view of coding-agent activity and quot
 
 ## Glossary
 
-**Agent** — an installed interactive coding CLI such as Pi, OpenCode, or Codex. An Agent is executable capability, not a model or provider.
+**Agent** — an installed interactive coding CLI such as Pi, OpenCode, Codex, or Hermes. An Agent is executable capability, not a model or provider.
 
 **Provider** — the source that reports quota or token activity. A Provider can be remote, local, or a compatibility adapter.
 

@@ -22,4 +22,6 @@ kpackagetool6 --type Plasma/Applet --remove io.github.jhs88.agenthub
 
 This first slice renders provider selection, subscription limits, today's aggregate tokens/prompts/sessions, refresh and launch actions, and default-agent selection. It intentionally leaves detailed seven-day/model charts for the next visual slice.
 
+The default-agent picker uses `snapshot.agents`, including Pi, OpenCode, Codex, and Hermes. Missing executables are disabled. The helper owns selection and interactive launch policy; the widget does not install agents or change their configuration.
+
 For a persistent user installation of the core, session helper, and widget together, run `../install-user.sh` from the repository root.

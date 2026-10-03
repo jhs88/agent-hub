@@ -88,6 +88,7 @@ class SnapshotContractTest(unittest.TestCase):
                 {"id": "pi", "installed": True},
                 {"id": "opencode", "installed": False},
                 {"id": "codex", "installed": True},
+                {"id": "hermes", "installed": False},
             ])
             self.assertEqual(snapshot["privacy"], {"contentRetained": False})
 
